@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contas } from '../model/contas';
+import { ContasService } from '../services/contas.service';
 
 @Component({
   selector: 'app-contas',
@@ -8,14 +9,13 @@ import { Contas } from '../model/contas';
 })
 export class ContasComponent implements OnInit {
 
-  contas: Contas[] = [
-    {_id: '1', nome: 'Conta001', dataVencimento: '25/01/2022', dataPagamento: '29/01/2022', valorOriginal: 'R$100,00', valorCorrigido:'R$121,01', qtdDiasAtraso: '4' }
-  ];
+  contas: Contas[] = [];
   displayedColumns = ['nome', 'dataVencimento', 'dataPagamento', 'valorOriginal', 'valorCorrigido', 'qtdDiasAtraso' ];
-
+  service: ContasService;
  
   constructor() {
-      //this.contas = [];
+    this.service = new ContasService();
+    this.contas = this.service.list();
   }
 
   ngOnInit(): void {}
