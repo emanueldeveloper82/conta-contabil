@@ -9,13 +9,12 @@ import { Contas } from '../model/contas';
 })
 export class ContasService {
 
-  private readonly API = 'assets/contas.json';
+  private readonly API = 'http://localhost:8095/api/conta/listar';
 
   constructor(private httpClient: HttpClient) { }
   list() {
       return this.httpClient.get<Contas[]>(this.API)
               .pipe(
-                delay(1000),
                 first(),
                 take(1),
                 tap(contas => console.log(contas))
