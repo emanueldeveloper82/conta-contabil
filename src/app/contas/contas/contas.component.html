@@ -1,0 +1,39 @@
+<mat-card>
+  <mat-toolbar  color="primary">
+    <span>Contas a pagar</span>
+  </mat-toolbar>
+  <table align="center" id="contas" mat-table [dataSource]="contas" class="mat-elevation-z8">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef>Nome</th>
+      <td mat-cell *matCellDef="let conta">{{ conta.nome }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataVencimento">
+      <th mat-header-cell *matHeaderCellDef>Vencimento</th>
+      <td mat-cell *matCellDef="let conta">{{ conta.dataVencimento }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataPagamento">
+      <th mat-header-cell *matHeaderCellDef>Pagamento</th>
+      <td mat-cell *matCellDef="let conta">{{ conta.dataPagamento }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="valorOriginal">
+      <th mat-header-cell *matHeaderCellDef>Valor</th>
+      <td mat-cell *matCellDef="let conta">{{ conta.valorOriginal }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="valorCorrigido">
+      <th mat-header-cell *matHeaderCellDef>Correção</th>
+      <td mat-cell *matCellDef="let conta">{{ conta.valorCorrigido }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="qtdDiasAtraso">
+      <th mat-header-cell *matHeaderCellDef>Atraso / dia</th>
+      <td mat-cell *matCellDef="let conta">{{ conta.qtdDiasAtraso }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</mat-card>
