@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { delay, first, take, tap } from 'rxjs';
 
 import { Contas } from '../model/contas';
 
@@ -7,11 +9,17 @@ import { Contas } from '../model/contas';
 })
 export class ContasService {
 
-  constructor() { }
-  list(): Contas[] {
-    return[
-      {_id: '1', nome: 'Conta001', dataVencimento: '25/01/2022', dataPagamento: '29/01/2022', valorOriginal: 'R$100,00', valorCorrigido:'R$121,01', qtdDiasAtraso: '4' }
-    ]
+  private readonly API = 'assets/contas.json';
+
+  constructor(private httpClient: HttpClient) { }
+  list() {
+      return this.httpClient.get<Contas[]>(this.API)
+              .pipe(
+                delay(1000),
+                first(),
+                take(1),
+                tap(contas => console.log(contas))
+              );
   }
 
 }
