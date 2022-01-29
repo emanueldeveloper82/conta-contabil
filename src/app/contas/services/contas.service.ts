@@ -9,7 +9,7 @@ import { Contas } from '../model/contas';
 })
 export class ContasService {
 
-  private readonly API = 'http://localhost:8095/api/conta/listar';
+  private readonly API = 'api/conta/listar';
 
   constructor(private httpClient: HttpClient) { }
   list() {

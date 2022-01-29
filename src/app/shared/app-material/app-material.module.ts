@@ -17,7 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
   ]
 })
 export class AppMaterialModule { }
