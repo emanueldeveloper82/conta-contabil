@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { catchError, Observable, of } from 'rxjs';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+
 import { Contas } from '../model/contas';
+import { ContasService } from '../services/contas.service';
 
 @Component({
   selector: 'app-contas',
@@ -8,14 +13,23 @@ import { Contas } from '../model/contas';
 })
 export class ContasComponent implements OnInit {
 
-  contas: Contas[] = [
-    {_id: '1', nome: 'Conta001', dataVencimento: '25/01/2022', dataPagamento: '29/01/2022', valorOriginal: 'R$100,00', valorCorrigido:'R$121,01', qtdDiasAtraso: '4' }
-  ];
+  contas$: Observable <Contas[]>;
   displayedColumns = ['nome', 'dataVencimento', 'dataPagamento', 'valorOriginal', 'valorCorrigido', 'qtdDiasAtraso' ];
-
  
-  constructor() {
-      //this.contas = [];
+  constructor(private service: ContasService, public dialog: MatDialog ) {
+    this.contas$ = this.service.list().pipe(
+      catchError(error => {
+        console.log(error)
+        this.onError('Erro ao carregar contas.')
+        return of([])
+      })
+    );
+  }
+
+  onError(erroMessage: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: erroMessage
+    });
   }
 
   ngOnInit(): void {}
