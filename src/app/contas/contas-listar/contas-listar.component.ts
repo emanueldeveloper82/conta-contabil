@@ -7,11 +7,11 @@ import { Contas } from '../model/contas';
 import { ContasService } from '../services/contas.service';
 
 @Component({
-  selector: 'app-contas',
-  templateUrl: './contas.component.html',
-  styleUrls: ['./contas.component.scss']
+  selector: 'app-contas-listar',
+  templateUrl: './contas-listar.component.html',
+  styleUrls: ['./contas-listar.component.scss']
 })
-export class ContasComponent implements OnInit {
+export class ContasListarComponent implements OnInit {
 
   contas$: Observable <Contas[]>;
   displayedColumns = ['nome', 'dataVencimento', 'dataPagamento', 'valorOriginal', 'valorCorrigido', 'qtdDiasAtraso' ];
