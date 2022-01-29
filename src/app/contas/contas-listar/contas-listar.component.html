@@ -1,5 +1,8 @@
+
+
 <mat-card>
-  <mat-toolbar>
+
+  <!-- <mat-toolbar>
     <span>Contas a pagar</span>
 
     <span class="toolbar-spacer"></span>
@@ -8,7 +11,16 @@
     <button mat-button color="primary">Adicionar</button>
     </div>
 
+  </mat-toolbar> -->
+
+  <mat-toolbar class="toolbar-padding-right">
+    <span>Contas a Pagar</span>
+    <span class="toolbar-spacer"></span>
+    <button class="button-row" mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>Nova Conta
+    </button>    
   </mat-toolbar>
+
 
   <div *ngIf="contas$ | async as contas; else loading">
     <table align="center" id="contas" mat-table [dataSource]="contas" class="mat-elevation-z8">
