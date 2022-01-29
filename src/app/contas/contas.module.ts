@@ -4,13 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
 import { ContasRoutingModule } from './contas-routing.module';
-import { ContasComponent } from './contas/contas.component';
+import { ContasListarComponent } from './contas-listar/contas-listar.component';
+import { ContasCadastroComponent } from './contas-cadastro/contas-cadastro.component';
 
 
 
 @NgModule({
   declarations: [
-    ContasComponent
+    ContasListarComponent,
+    ContasCadastroComponent
   ],
   imports: [
     CommonModule,
