@@ -14,10 +14,10 @@ import { ContasService } from '../services/contas.service';
 export class ContasListarComponent implements OnInit {
 
   contas$: Observable <Contas[]>;
-  displayedColumns = ['nome', 'dataVencimento', 'dataPagamento', 'valorOriginal', 'valorCorrigido', 'qtdDiasAtraso' ];
+  displayedColumns = ['nome', 'dataVencimento', 'dataPagamento', 'valorOriginal', 'valorCorrigido', 'qtdDiasAtraso', 'acoes' ];
  
   constructor(private service: ContasService, public dialog: MatDialog ) {
-    this.contas$ = this.service.list().pipe(
+    this.contas$ = this.service.listar().pipe(
       catchError(error => {
         console.log(error)
         this.onError('Erro ao carregar contas.')
