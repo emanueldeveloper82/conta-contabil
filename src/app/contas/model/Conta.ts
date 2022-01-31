@@ -1,4 +1,4 @@
-export interface Contas {
+export interface Conta {
     _id: string; 
     nome: string;
     dataVencimento: string;
