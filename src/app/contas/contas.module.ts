@@ -3,9 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppMaterialModule } from '../shared/app-material/app-material.module';
 import { SharedModule } from '../shared/shared.module';
-import { ContasRoutingModule } from './contas-routing.module';
-import { ContasListarComponent } from './contas-listar/contas-listar.component';
 import { ContasCadastroComponent } from './contas-cadastro/contas-cadastro.component';
+import { ContasListarComponent } from './contas-listar/contas-listar.component';
+import { ContasRoutingModule } from './contas-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -18,7 +19,9 @@ import { ContasCadastroComponent } from './contas-cadastro/contas-cadastro.compo
     CommonModule,
     ContasRoutingModule,
     AppMaterialModule,
-    SharedModule    
+    SharedModule,
+    FormsModule, 
+    ReactiveFormsModule    
   ]
 })
 export class ContasModule { }
