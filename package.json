@@ -1,6 +1,6 @@
 {
   "name": "conta-contabil",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.js",
@@ -17,6 +17,7 @@
     "@angular/core": "~13.2.0",
     "@angular/forms": "~13.2.0",
     "@angular/material": "^13.2.0",
+    "@angular/material-moment-adapter": "^13.2.0",
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
