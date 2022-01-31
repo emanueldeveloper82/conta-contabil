@@ -41,8 +41,8 @@ export class ContasCadastroComponent implements OnInit {
   fechar(): void {
     this.contaForm.reset();
     this.dialogContaForm.close(true);
-    //this.contaForm.reset();
-    //window.location.reload();
+    this.contaForm.reset();
+    window.location.reload();
   }
 
   salvar(): void {
